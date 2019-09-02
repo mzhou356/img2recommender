@@ -1,0 +1,3 @@
+# ignore all npy file and bottleneck weights
+bottleneck*
+*bottleneck*
