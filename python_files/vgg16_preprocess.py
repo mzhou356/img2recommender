@@ -5,7 +5,7 @@ from __future__ import division
 from __future__ import print_function
 
 import numpy as np
-
+from keras.applications import keras_modules_injection
 from keras_applications import get_submodules_from_kwargs
 
 def _preprocess_numpy_input(x, data_format, **kwargs):
@@ -61,7 +61,7 @@ def _preprocess_symbolic_input(x, data_format, **kwargs):
 
     return x
 
-
+@keras_modules_injection
 def preprocess_input(x, data_format=None, **kwargs):
     """Preprocesses a tensor or Numpy array encoding a batch of images
        changing RGB to BGR.
@@ -79,8 +79,7 @@ def preprocess_input(x, data_format=None, **kwargs):
     # Raises
         ValueError: In case of unknown `data_format` argument.
     """
-    backend, _, _, _ = get_submodules_from_kwargs(kwargs)
-
+    backend = kwargs.get('backend')
     if data_format is None:
         data_format = backend.image_data_format()
     if data_format not in {'channels_first', 'channels_last'}:
