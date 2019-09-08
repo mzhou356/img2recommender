@@ -44,11 +44,12 @@ def create_columns_labels(img_dict,labelnames=['eyewear','hat','beard']):
     """convert image_label dictionary from dict_from_data into a pandas
         dataframe.
     # Arguments
-        img_dict: image_label dictionary from dict_from_data function
-        labelnames: image labels for classification
+        img_dict: image_label dictionary from dict_from_data function.
+        labelnames: image labels for classification.
     # Returns
         a pandas dataframe. Each label is a column with 1 as yes and 0
         as no and picture_id in sorted manner with lowest jpg number first.
+        1 and 0 are type string for imagegenerator class mode binary.
     """
     # picture_id in sorted manner, ascending
     pic_id_sorted = sorted(img_dict.keys())
@@ -66,10 +67,10 @@ def create_columns_labels(img_dict,labelnames=['eyewear','hat','beard']):
                 col_dict[label] = list()
             # 1 as yes
             if label in val:
-                col_dict[label].append(1)
+                col_dict[label].append('1')
             # 0 as no
             else:
-                col_dict[label].append(0)
+                col_dict[label].append('0')
     # convert col_dict into a pandas dataframe
     pic_df = pd.DataFrame(col_dict)
     return pic_df
