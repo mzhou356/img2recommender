@@ -1,0 +1,2 @@
+# ignore all npy file and bottleneck weights
+untracked_resnet50/*
