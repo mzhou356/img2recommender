@@ -7,6 +7,8 @@ import os
 # disable tensorflow logging
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import sys
+import warnings
+warnings.filterwarnings('ignore')
 import numpy as np
 import matplotlib.pyplot as plt
 import face_recognition
@@ -169,7 +171,9 @@ def recommend(filepath):
     plt.imshow(img)
     plt.axis('off')
     plt.title(f"We recommend {product} products to this IG user!")
-    plt.show()
+    plt.show(block=False)
+    plt.pause(3)
+    plt.close()
 
 
 # initialize the 6 models outside the recommend function to speed up process:
@@ -192,8 +196,9 @@ resnet_beard = load_pretrained_models(model_path_r,beard_r)
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
+    if len(sys.argv) < 2:
         print('Wrong input. Please enter a folder path.')
         sys.exit(1)
-    filepath = sys.argv[1]
-    recommend(filepath)
+    filepaths = sys.argv[1:]
+    for filepath in filepaths:
+        recommend(filepath)
