@@ -31,7 +31,7 @@ This project introduces an IMG2RECOMMENDER concept for more targeted social medi
   
   - Able to recommend sensible products based upon the images seens. 
 
-### Data Understanding
+### Data Understanding and Data Preparation:
 
 * Image Data of People: 
   
@@ -45,16 +45,15 @@ This project introduces an IMG2RECOMMENDER concept for more targeted social medi
      
   <img src='https://github.com/mzhou356/img2recommender/blob/master/image_readme/dataframe.png' width='300'>
  
- 
-
 #### Confidential Data
 
-### Data Preparation:
-
+* All image data are webscraped from google images. Due to copyrights, they are not available on github. 
 
 ### Modeling:
 
 ### Model Evaluation:
+
+<img src='https://github.com/mzhou356/img2recommender/blob/master/image_readme/auc_roc.png' width = '1200'>
 
 ### Deployment:
 #### Program Prototype
