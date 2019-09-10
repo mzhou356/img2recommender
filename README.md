@@ -2,7 +2,7 @@
 ## A Social Media Marketing Business Introduction
 
 ### Business Understanding:
-<img src= 'https://i2.wp.com/www.datadriveninvestor.com/wp-content/uploads/2018/11/cyber-1.png?fit=700%2C739&ssl=1' width='200'> . 
+<img src= 'https://i2.wp.com/www.datadriveninvestor.com/wp-content/uploads/2018/11/cyber-1.png?fit=700%2C739&ssl=1' width='250'> . 
 
 * Social Media Advertisements are quite popular however:  
    
@@ -11,9 +11,11 @@
 
 This project introduces an IMG2RECOMMENDER concept for more targeted social media advertisement. This approach uses deep learning to convert social media images to more targeted product advertisements.
 
-<img src = '
+<img src= 'https://github.com/mzhou356/img2recommender/blob/master/image_readme/img2reconcept.png' width='350'> . 
+
 
 #### Problem Definition:
+<img src= 'https://github.com/mzhou356/img2recommender/blob/master/image_readme/f2hbe.png' width='900'> . 
 
 #### Evaluation Criteria:
 
@@ -30,6 +32,7 @@ This project introduces an IMG2RECOMMENDER concept for more targeted social medi
 
 ### Deployment:
 #### Program Prototype
+<img src= 'https://github.com/mzhou356/img2recommender/blob/master/image_readme/realexp.png' width='700'> 
 
 ### Next Steps:
 #### Model Improvement
