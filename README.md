@@ -17,9 +17,35 @@ This project introduces an IMG2RECOMMENDER concept for more targeted social medi
 #### Problem Definition:
 <img src= 'https://github.com/mzhou356/img2recommender/blob/master/image_readme/f2hbe.png' width='900'> . 
 
+* Project Goals:  
+
+  - Successfully recommend hat, beard, or eyewear (HBE) products to customers in pictures.  
+  
+  - Develop a prototype program to recommend one of the 3 products to customers. 
+  
 #### Evaluation Criteria:
 
+* Success Metrics:  
+
+  - Develop successful one vs rest multi-classifiers with high AUC and high F1 scores. 
+  
+  - Able to recommend sensible products based upon the images seens. 
+
 ### Data Understanding
+
+* Image Data of People: 
+  
+  - Manually scraped from google images 
+     * total 653 usable images 
+     
+  - Manually labelled and cropped images of portraits for transfer learning training. 
+  
+  - Each image may have 2 or 3 labels. This is a multilabel classification problem. 
+     * convert the folders of images into a pandas dataframe: 
+     
+  <img src='https://github.com/mzhou356/img2recommender/blob/master/image_readme/dataframe.png' width='300'>
+ 
+ 
 
 #### Confidential Data
 
