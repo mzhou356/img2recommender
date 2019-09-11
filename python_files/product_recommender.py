@@ -3,29 +3,26 @@
 """
 
 # import libaries
+import sys
 import os
 # disable tensorflow logging
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-import sys
 import warnings
 warnings.filterwarnings('ignore')
+import face_recognition
 import numpy as np
 import matplotlib.pyplot as plt
-import face_recognition
-from keras_preprocessing.image import load_img, img_to_array
+import keras
 from keras.models import model_from_json
 from keras.applications.resnet50 import preprocess_input as rs50
-from vgg16_preprocess import preprocess_input as vgp
-from PIL import Image as pil_image
-#~ import warnings
-#~ warnings.filterwarnings('ignore')
-import tensorflow as tf
-import keras
 from keras.backend.tensorflow_backend import set_session
+from keras_preprocessing.image import load_img, img_to_array
+from PIL import Image as pil_image
+import tensorflow as tf
+from vgg16_preprocess import preprocess_input as vgp
 
 # disable tensorflow logging
 tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
-
 # allows the computer to use GPU to run the model
 config = tf.ConfigProto()
 # dynamically grow the memory used on the GPU, necessary for RTX cards
@@ -165,8 +162,8 @@ class ProductRecommender:
                 # remove identified false faces
                 # assume the fake faces are less than 150 pixel
                 if face.shape[0] <= 150 or face.shape[1] <= 150:
-                    continue
                     print(f'Analyzing image number {total}...')
+                    continue
                 # get predicted value for both resnet50 and vgg16
                 # vgg16 predictions first:
                 img_v = pil_image.fromarray(face).resize((150, 150),
@@ -240,8 +237,9 @@ if __name__ == "__main__":
         print('Wrong input. Please enter a folder path.')
         sys.exit(1)
     filepaths = sys.argv[1:]
-    for filepath in filepaths:
+    for fpath in filepaths:
         rec = ProductRecommender()
         rec.load_model(MODEL_PATH_V, MODEL_PATH_R,
-                       [[HAT_V,BEARD_V,EYEWEAR_V],[HAT_R,BEARD_R,EYEWEAR_R]])
-        rec.recommend(filepath)
+                       [[HAT_V, BEARD_V, EYEWEAR_V],
+                        [HAT_R, BEARD_R, EYEWEAR_R]])
+        rec.recommend(fpath)
