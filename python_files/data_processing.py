@@ -25,7 +25,7 @@ def dict_from_data(file_path='/Datastore/cropped'):
     for dirname, _, files in os.walk(file_path):
         # ignore other filess in the cropped folders, length 18 may not apply
         # in your folder structure, please modify conditions accordingly
-        if len(dirname)<=18:
+        if len(dirname) <= 18:
             continue
         # extract image label
         label = os.path.split(dirname)[-1]
@@ -36,11 +36,11 @@ def dict_from_data(file_path='/Datastore/cropped'):
             if pic in result:
                 result[pic].append(label)
             else:
-                result[pic]=[label]
+                result[pic] = [label]
     return result
 
 
-def create_columns_labels(img_dict,labelnames=['eyewear','hat','beard']):
+def create_columns_labels(img_dict, labelnames=None):
     """convert image_label dictionary from dict_from_data into a pandas
         dataframe.
     # Arguments
@@ -51,12 +51,14 @@ def create_columns_labels(img_dict,labelnames=['eyewear','hat','beard']):
         as no and picture_id in sorted manner with lowest jpg number first.
         1 and 0 are type string for imagegenerator class mode binary.
     """
+    if labelnames is None:
+        labelnames = ['eyewear', 'hat', 'beard']
     # picture_id in sorted manner, ascending
     pic_id_sorted = sorted(img_dict.keys())
     # column dictionary to create dataframe
     col_dict = {}
     # initialize the pic_id column with an empty list
-    col_dict['pic_id']=[]
+    col_dict['pic_id'] = []
     for pic in pic_id_sorted:
         # add pic jpg name into the pic_id column
         col_dict['pic_id'].append(pic)
