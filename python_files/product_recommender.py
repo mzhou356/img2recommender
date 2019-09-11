@@ -208,12 +208,12 @@ class ProductRecommender:
         # make sure total is not zero
         if total:
             # if none are detected
-            if not(hat and beard and eyewear):
+            if not(hat or beard or eyewear):
+                print(pred_c)
                 title = 'No items detected'
                 self.plot_image(file)
             else:
                 if len(files) == 1:
-                    print(hat,beard,eyewear)
                     print(pred_c)
                     index = np.argmax(pred_c)
                 else:
