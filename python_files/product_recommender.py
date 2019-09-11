@@ -208,17 +208,19 @@ class ProductRecommender:
         # make sure total is not zero
         if total:
             # there are no items identified
-            if hat or beard or eyewear:
+            if hat and beard and eyewear:
                 title = 'No items detected for this user!'
-            # just one image, pick max score
-            elif len(files) == 1:
-                index = np.argmax(pred_c)
+                self.plot_image(file)
             else:
-                index = np.argmax([hat/total, beard/total, eyewear/total])
-            product = ['hat', 'beard', 'eyewear'][index]
-            img_chosen = highest_image[index]
-            self.plot_image(img_chosen)
-            title = f"We recommend {product} products to this IG user!"
+                # just one image, pick max score
+                if len(files) == 1:
+                    index = np.argmax(pred_c)
+                else:
+                    index = np.argmax([hat/total, beard/total, eyewear/total])
+                product = ['hat', 'beard', 'eyewear'][index]
+                img_chosen = highest_image[index]
+                self.plot_image(img_chosen)
+                title = f"We recommend {product} products to this IG user!"
             plt.title(title)
             plt.show(block=False)
             plt.pause(3)
