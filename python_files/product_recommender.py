@@ -205,16 +205,24 @@ class ProductRecommender:
                     highest_image[2] = file
                     highest_score[2] = pred_c[2]
         # recommend products based upon most percentage per total num of pics
-        # make sure total is not zero and not just one image
+        # make sure total is not zero
         if total:
-            if len(files) == 1:
-                index = np.argmax(pred_c)
+            # if none are detected
+            if not(hat and beard and eyewear):
+                title = 'No items detected'
+                self.plot_image(file)
             else:
-                index = np.argmax([hat/total, beard/total, eyewear/total])
-            product = ['hat', 'beard', 'eyewear'][index]
-            img_chosen = highest_image[index]
-            self.plot_image(img_chosen)
-            plt.title(f"We recommend {product} products to this IG user!")
+                if len(files) == 1:
+                    print(hat,beard,eyewear)
+                    print(pred_c)
+                    index = np.argmax(pred_c)
+                else:
+                    index = np.argmax([hat/total, beard/total, eyewear/total])
+                product = ['hat', 'beard', 'eyewear'][index]
+                img_chosen = highest_image[index]
+                self.plot_image(img_chosen)
+                title = f"We recommend {product} products to this user!"
+            plt.title(title)
             plt.show(block=False)
             plt.pause(3)
             plt.close()
