@@ -153,9 +153,19 @@ This project introduces an IMG2RECOMMENDER concept for more targeted social medi
       * resnet50_model_5_up.json: model architecture for resnet50 
       * best_resnet50_model_beard.h5.gz, best_resnet50_model_eyewear.h5.gz, best_resnet50_model_hat.h5.gz:
         - best final model weights for all 3 labels. Saved in gz because the weight files are too large for GitHub. 
-   
-  * PDF Presentation: 
-    - A conceptual summary of the project for non technical audiences.  
+        
+  * image_readme:
+    - images for uploading into README.md.
+    
+ * img2recommender_summary_notebook.ipyn
+    - a summary technical notebook for data visualization and model tuning. 
+      * Checkout individual notebooks from Jupyter Notebooks for details. 
+      
+  * summary_presentation_img2recommender.pdf 
+    - A conceptual summary of the project for non technical audiences in pdf format.
+    
+  * summary_presentation_img2recommender.pptx
+    - A conceptual summary of the project for non technical audiences in pptx format.  
     
 #### Sources: 
    * https://www.pyimagesearch.com/2017/12/04/how-to-create-a-deep-learning-dataset-using-google-images/
