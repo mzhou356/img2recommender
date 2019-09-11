@@ -87,7 +87,4 @@ def preprocess_input(x, data_format=None, **kwargs):
 
     if isinstance(x, np.ndarray):
         return _preprocess_numpy_input(x, data_format=data_format, **kwargs)
-    else:
-        return _preprocess_symbolic_input(x, data_format=data_format, **kwargs)
-
-
+    return _preprocess_symbolic_input(x, data_format=data_format, **kwargs)
