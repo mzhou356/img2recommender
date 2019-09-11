@@ -162,8 +162,9 @@ class ProductRecommender:
                 # remove identified false faces
                 # assume the fake faces are less than 150 pixel
                 if face.shape[0] <= 150 or face.shape[1] <= 150:
-                    print(f'Analyzing image number {total}...')
                     continue
+                # print image analyazing progress if face is large enough
+                print(f'Analyzing image number {total}...')
                 # get predicted value for both resnet50 and vgg16
                 # vgg16 predictions first:
                 img_v = pil_image.fromarray(face).resize((150, 150),
