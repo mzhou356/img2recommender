@@ -245,10 +245,10 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         print('Wrong input. Please enter a folder path.')
         sys.exit(1)
-    filepaths = sys.argv[1:]
-    for fpath in filepaths:
-        rec = ProductRecommender()
-        rec.load_model(MODEL_PATH_V, MODEL_PATH_R,
-                       [[HAT_V, BEARD_V, EYEWEAR_V],
-                        [HAT_R, BEARD_R, EYEWEAR_R]])
-        rec.recommend(fpath)
+    FILEPATHS = sys.argv[1:]
+    REC = ProductRecommender()
+    REC.load_model(MODEL_PATH_V, MODEL_PATH_R,
+                   [[HAT_V, BEARD_V, EYEWEAR_V],
+                    [HAT_R, BEARD_R, EYEWEAR_R]])
+    for fpath in FILEPATHS:
+        REC.recommend(fpath)
